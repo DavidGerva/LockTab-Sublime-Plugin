@@ -17,9 +17,11 @@ Just right click on the view (right now not on the tab name, see ToDo#4) and Loc
 the tab.
 
 **Lock:**
+
 ![Lock](./images/Lock.png)
 
 **Alert:**
+
 ![Alert](./images/Alert.png)
 
 LockTab.sublime-settings is quite self-explained.
