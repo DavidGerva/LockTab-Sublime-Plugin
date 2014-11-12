@@ -15,7 +15,17 @@ Usage
 -----
 Just right click on the view (right now not on the tab name, see ToDo#4) and Lock/Unlock
 the tab.
+
+**Lock:**
+![Lock](./images/Lock.png)
+
+**Alert:**
+![Alert](./images/Alert.png)
+
 LockTab.sublime-settings is quite self-explained.
+
+**Settings:**
+![Settings](./images/Settings.png)
 
 
 ToDo
@@ -41,3 +51,6 @@ Do you know how to do it?
 6. Managing more than one group of views. Again didn't try at all.
 
 7. Improving the "set focus" after the reopen
+
+8. Lock a tab -> Save the locked file with a new name. -> Close the tab
+Right now the plugin does not forbid the closure. Should I manage it?
