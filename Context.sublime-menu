@@ -1,0 +1,6 @@
+[
+   { "caption": "-" },
+   { "caption": "Lock Tab", "command": "lock_tab" },
+   { "caption": "UnLock Tab", "command": "un_lock_tab" },
+   { "caption": "-" }
+]

@@ -1,0 +1,7 @@
+{
+   "Alert": true, // pop up alert when try closing locked tab
+   "Focus on closed tab": true, // set the focus always on the closed tab (if locked)
+   "locked": [ ]
+
+}
+
