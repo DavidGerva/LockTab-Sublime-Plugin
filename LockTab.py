@@ -11,8 +11,8 @@ def plugin_loaded():
 
    # Loading lockList and Alert settings
    tempLockList = sSettings.get("locked")
-   tempAlert    = sSettings.get("Alert")
-   tempFocusOCT = sSettings.get("Focus on closed tab") 
+   tempAlert    = sSettings.get("alert")
+   tempFocusOCT = sSettings.get("focus_on_closed_tab") 
    # Check that every "locked" file is still in the window
    for tempFile in tempLockList:
       found = False
@@ -26,8 +26,8 @@ def plugin_loaded():
 
    # saving settings
    sSettings.set("locked", tempLockList)
-   sSettings.set("Alert", tempAlert)
-   sSettings.set("Focus on closed tab", tempFocusOCT)
+   sSettings.set("alert", tempAlert)
+   sSettings.set("focus_on_closed_tab", tempFocusOCT)
    sublime.save_settings( "LockTab.sublime-settings")
 
 
@@ -81,7 +81,7 @@ class KeyBindingListener(sublime_plugin.EventListener):
 
       nId = view.file_name()
       Lock_list = sSettings.get("locked")
-      bAlert = sSettings.get("Alert")
+      bAlert = sSettings.get("alert")
 
       if not (nId in Lock_list):
          return
@@ -104,12 +104,13 @@ class KeyBindingListener(sublime_plugin.EventListener):
 
    def on_load(self, view):
       # setting focus position
-      view.show(self.visibleRegion.begin())
+      if (view.name() in Lock_list):
+         view.show(self.visibleRegion.begin())
 
    def on_close(self, view):
 
       nId          = view.file_name()
-      tempFocusOCT = sSettings.get("Focus on closed tab") 
+      tempFocusOCT = sSettings.get("focus_on_closed_tab") 
       Lock_list    = sSettings.get("locked")
 
       # if tab locked
