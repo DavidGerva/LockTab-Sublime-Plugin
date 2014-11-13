@@ -104,8 +104,8 @@ class KeyBindingListener(sublime_plugin.EventListener):
 
    def on_load(self, view):
       # setting focus position
-      if (view.name() in Lock_list):
-         view.show(self.visibleRegion.begin())
+      # if (view.name() in Lock_list):
+      view.show(self.visibleRegion.begin())
 
    def on_close(self, view):
 
@@ -132,4 +132,3 @@ class KeyBindingListener(sublime_plugin.EventListener):
          window.set_view_index(vNew, self.TabPosition[0], self.TabPosition[1])
          if not tempFocusOCT:
             window.focus_view(self.ActiveView)
-            
