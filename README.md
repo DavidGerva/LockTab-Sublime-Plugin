@@ -65,7 +65,7 @@ Right now the plugin does not forbid the closure. Should I manage it?
 
 ChangeLog
 =========
-I want annoy you with .md pop-up out of the blue when updating this package, so this is the changelog for every version of this package.
+I won't annoy you with .md pop-up out of the blue when updating this package, so this is the changelog for every version of this package.
 
 LockTab - 1.1.0
 ---------------
