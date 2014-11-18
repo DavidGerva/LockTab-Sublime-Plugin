@@ -6,10 +6,10 @@ The plugin tries to remember the position of the tab and also the position of th
 focus in the view.
 
 This is my first work and it has not the claim to be complete or perfect.
-(It is full of bug. ;)
-
 It is (and will remain) a very simple and essential, but I hope useful, plugin but it can
 be improved in a lot of aspects.
+
+Right now you can lock only saved-files (or, at least, with a physical path). (See ToDo #9)
 
 Usage
 -----
@@ -27,6 +27,7 @@ the tab.
 LockTab.sublime-settings is quite self-explained.
 
 **Settings:**
+
 ![Settings](./images/Settings.png)
 
 
@@ -56,3 +57,18 @@ Do you know how to do it?
 
 8. Lock a tab -> Save the locked file with a new name. -> Close the tab
 Right now the plugin does not forbid the closure. Should I manage it?
+
+9. Managing not-saved files(?)
+
+10. Add a default key-binding.
+
+
+ChangeLog
+=========
+I want annoy you with .md pop-up out of the blue when updating this package, so this is the changelog for every version of this package.
+
+LockTab - 1.1.0
+---------------
+- Changed IsEnabled in IsVisibile. You won't see the Lock/UnLock menu item every time you right-click on your file. You'll see only the available action. You won't see anything if the file hasn't a path.
+
+- Added the Preferences -> LockTab menu. You can now open the preferences file directly from sublime.

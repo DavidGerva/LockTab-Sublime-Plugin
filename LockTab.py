@@ -45,7 +45,8 @@ class LockTabCommand( sublime_plugin.TextCommand ):
          sSettings.set("locked", self.Lock_list)
          sublime.save_settings( "LockTab.sublime-settings")
 
-   def is_enabled(self, paths=None):
+   def is_visible(self, paths=None):
+   # def is_enabled(self, paths=None):
       # Avoiding locking of not-saved file
       self.Lock_list = sSettings.get("locked")      
       if not ( self.view.file_name() ):
@@ -66,8 +67,8 @@ class UnLockTabCommand( sublime_plugin.TextCommand ):
          sSettings.set("locked", self.Lock_list)
          sublime.save_settings( "LockTab.sublime-settings")
 
-   # def is_visible(self, paths=None):
-   def is_enabled(self, paths=None):
+   def is_visible(self, paths=None):
+   # def is_enabled(self, paths=None):
       self.Lock_list = sSettings.get("locked")
 
       if (self.view.file_name() in self.Lock_list):
