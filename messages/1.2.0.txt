@@ -1,0 +1,24 @@
+LockTab - 1.2.0
+---------------
+
+Hello! Here what's new in LockTab 1.2.0.
+
+- Added Toogle Lock Tab command.
+You can now use (and see) the toggle command both with a shorcut and from the right-click menu.
+
+- Added *show_toggle* and *hide_all* preferences.
+*show_toggle* if true hides the "lock_tab" and "unlock_tab" command from the right-click menu but shows a "Toggle lock tab" command.
+*hide_all* if true hides every command from the right-click menu. Useful if you don't want to view anything in the menu (if you have a menu full of functions) and if you want to use just the shortcut.
+
+- Now the "LOCKED" property in the status bar will be shown also when reopening sublime.
+
+- Something you want to do or propose?! Contact me!
+
+I think I won't create a "default" key binding. If you want to have one just open the *Key Bindings - User* menu under *Preferences* and add a line like this:
+
+   { "keys": ["ctrl+k"], "command": "toggle_tab_lock" }
+
+
+I will be back soon ;)
+
+David (davidgerva@gmail.com)

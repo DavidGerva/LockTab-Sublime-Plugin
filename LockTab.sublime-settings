@@ -1,7 +1,20 @@
 {
-   "alert": true, // pop up alert when try closing locked tab
-   "focus_on_closed_tab": true, // set the focus always on the closed tab (if locked)
+   
+   // pop up alert when try closing locked tab
+   "alert": true,
+   
+   // set the focus always on the closed tab (if locked)
+   "focus_on_closed_tab": true,
+
+   // if TRUE: doesn't show the LockTab / UnLockTab menu items but only Toggle Tab Lock
+   "show_toggle": false,
+
+   // if TRUE you won't see anything in the right-click menu.
+   // In this case you must use the keybinding or the ctrl+shift+p menu
+   // If TRUE this overwrite the "show_toggle" option
+   "hide_all": false,
+   
    "locked": [ ]
 
-}
+}                               
 

@@ -19,7 +19,9 @@ def plugin_loaded():
 
       for view in window.views():
          if tempFile == view.file_name():
+            view.set_status("Locked", "LOCKED")
             found = True
+            # and if found, set the locked property
 
       if not found:
          tempLockList.remove(tempFile) ;
@@ -30,26 +32,53 @@ def plugin_loaded():
    sSettings.set("focus_on_closed_tab", tempFocusOCT)
    sublime.save_settings( "LockTab.sublime-settings")
 
+class ToggleTabLockCommand( sublime_plugin.TextCommand ):
 
-class LockTabCommand( sublime_plugin.TextCommand ):
-      
    def run(self, edit):
 
-      self.Lock_list = sSettings.get("locked")
       settings = sublime.load_settings("LockTab.sublime-settings")
+      self.Lock_list = sSettings.get("locked")
+
       if not (self.view.file_name() in self.Lock_list):
          name = self.view.name()
          self.view.set_status("Locked", "LOCKED")
 
          self.Lock_list.append(self.view.file_name())
-         sSettings.set("locked", self.Lock_list)
-         sublime.save_settings( "LockTab.sublime-settings")
+
+      else:
+         self.Lock_list.remove(self.view.file_name())
+         self.view.erase_status("Locked")
+
+      sSettings.set("locked", self.Lock_list)
+      sublime.save_settings( "LockTab.sublime-settings")
+
+   def is_visible(self, paths=None):
+
+      settings    = sublime.load_settings("LockTab.sublime-settings")
+      bShowToggle = sSettings.get("show_toggle")
+      bHideAll    = sSettings.get("hide_all")
+
+      if (bHideAll):
+         return False
+
+      return bShowToggle
+
+class LockTabCommand( sublime_plugin.TextCommand ):   
+      
+   def run(self, edit):
+      ToggleTabLockCommand.run(self, edit)
 
    def is_visible(self, paths=None):
    # def is_enabled(self, paths=None):
+      self.Lock_list = sSettings.get("locked")
+      bShowToggle    = sSettings.get("show_toggle")
+      bHideAll       = sSettings.get("hide_all")
+
+      if (bHideAll):
+         return False
+
       # Avoiding locking of not-saved file
-      self.Lock_list = sSettings.get("locked")      
-      if not ( self.view.file_name() ):
+      if not ( self.view.file_name() ) or bShowToggle:
          return False
 
       if (self.view.file_name() in self.Lock_list):
@@ -57,19 +86,22 @@ class LockTabCommand( sublime_plugin.TextCommand ):
 
       return True
 
-class UnLockTabCommand( sublime_plugin.TextCommand ):
+class UnlockTabCommand( sublime_plugin.TextCommand ):
 
    def run(self, edit):
-      self.Lock_list = sSettings.get("locked")
-      if (self.view.file_name() in self.Lock_list):
-         self.Lock_list.remove(self.view.file_name())
-         self.view.erase_status("Locked")
-         sSettings.set("locked", self.Lock_list)
-         sublime.save_settings( "LockTab.sublime-settings")
+      ToggleTabLockCommand.run(self, edit)
 
    def is_visible(self, paths=None):
    # def is_enabled(self, paths=None):
       self.Lock_list = sSettings.get("locked")
+      bShowToggle    = sSettings.get("show_toggle")
+      bHideAll       = sSettings.get("hide_all")
+
+      if (bHideAll):
+         return False      
+
+      if bShowToggle:
+         return False
 
       if (self.view.file_name() in self.Lock_list):
          return True
@@ -99,7 +131,7 @@ class KeyBindingListener(sublime_plugin.EventListener):
       self.bClose = False;
       # PopUp
       if (bAlert):
-         if (sublime.ok_cancel_dialog("Locked Tab. Close it anyway?", "Yep!")):
+         if (sublime.ok_cancel_dialog("Locked Tab. Close it anyway?", "Yes!")):
             self.bClose = True;
 
 
