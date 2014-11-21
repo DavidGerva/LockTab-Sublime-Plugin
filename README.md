@@ -94,4 +94,4 @@ Thanks To
 =========
 - [antonioriva](https://github.com/antonioriva)
 - [belmat](https://github.com/belmat)
-- GianM
+- [gian8816](https://github.com/gian8816)
