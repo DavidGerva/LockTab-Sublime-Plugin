@@ -160,8 +160,10 @@ class KeyBindingListener(sublime_plugin.EventListener):
          # if I have to keep the tab opened
          window.run_command("reopen_last_file")
 
+
          # setting the old tab position
          vNew = window.active_view()
+         vNew.set_status("Locked", "LOCKED")
          window.set_view_index(vNew, self.TabPosition[0], self.TabPosition[1])
          if not tempFocusOCT:
             window.focus_view(self.ActiveView)
