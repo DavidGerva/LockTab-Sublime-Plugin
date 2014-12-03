@@ -73,12 +73,6 @@ Right now the plugin does not forbid the closure. Should I manage it?
 ChangeLog
 =========
 
-LockTab - 1.1.0
----------------
-- Changed IsEnabled in IsVisibile. You won't see the Lock/UnLock menu item every time you right-click on your file. You'll see only the available action. You won't see anything if the file hasn't a path.
-
-- Added the Preferences -> LockTab menu. You can now open the preferences file directly from sublime.
-
 LockTab - 1.2.0
 ---------------
 - Added Toogle Lock Tab command.
@@ -89,6 +83,12 @@ You can now use (and see) the toggle command both with a shorcut and from the ri
 *hide_all* if true hides every command from the right-click menu. Useful if you don't want to view anything in the menu (if you have a menu full of functions) and if you want to use just the shortcut.
 
 - Now the "LOCKED" property in the status bar will be shown also when reopening sublime
+
+LockTab - 1.1.0
+---------------
+- Changed IsEnabled in IsVisibile. You won't see the Lock/UnLock menu item every time you right-click on your file. You'll see only the available action. You won't see anything if the file hasn't a path.
+
+- Added the Preferences -> LockTab menu. You can now open the preferences file directly from sublime.
 
 Thanks To
 =========
